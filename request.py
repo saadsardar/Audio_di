@@ -18,7 +18,10 @@ with open("audio1.wav", "rb") as wavfile:
 
 # here, input_wav is a bytes object representing the wav object
 rate, data = read(io.BytesIO(input_wav))
-
+dic={
+    'rate': rate,
+    'data': data,
+}
 # data is a numpy ND array representing the audio data. Let's do some stuff with it
 # reversed_data = data[::-1] #reversing it
 
@@ -26,7 +29,7 @@ rate, data = read(io.BytesIO(input_wav))
 
 # send HTTP request to the server
 print("sending")
-response = requests.post(url, data=rate, headers=headers)
+response = requests.post(url, data=dic, headers=headers)
 print(response)
 predictions = response.json()
 print(predictions)

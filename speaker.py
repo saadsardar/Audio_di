@@ -28,12 +28,12 @@ def VoiceActivityDetection(wavData, frameRate):
     thresh = 0.1*(np.percentile(ste, 97.5) + 9*np.percentile(ste, 2.5))
     return (ste > thresh).astype('bool')
 
-def getAudio(rate):
+def getAudio(dic):
     #then, let's save it to a BytesIO object, which is a buffer for bytes object
     bytes_wav = bytes()
     byte_io = io.BytesIO(bytes_wav)
-    reversed_data = data[::-1] 
-    write(byte_io, rate, reversed_data)
+    reversed_data = dic['data'][::-1] 
+    write(byte_io, dic['rate'], reversed_data)
     wavFile = byte_io.read()
 
     segLen, frameRate, numMix = 3, 50, 128
