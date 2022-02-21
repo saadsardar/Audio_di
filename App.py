@@ -1,12 +1,12 @@
 from flask import Flask, jsonify, request
-from Face import predictFace
+from speaker import getAudio
 
 
 app = Flask(__name__)
 
 @app.route("/audio", methods=["POST"])
 def predict():
-    predictions = predictFace(request)
+    predictions = getAudio(request)
 
     return jsonify(predictions)
 
