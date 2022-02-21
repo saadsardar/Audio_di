@@ -32,7 +32,7 @@ def getAudio(rate):
     #then, let's save it to a BytesIO object, which is a buffer for bytes object
     bytes_wav = bytes()
     byte_io = io.BytesIO(bytes_wav)
-    write(byte_io, rate, reversed_data)
+    write(byte_io, rate)
     wavFile = byte_io.read()
 
     segLen, frameRate, numMix = 3, 50, 128

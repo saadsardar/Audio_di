@@ -5,8 +5,8 @@ from scipy.io.wavfile import read, write
 import io
 
 
-url = "http://35.232.11.230:5000/audio"
-headers = {"content-type"}
+url = "http://35.192.179.200:5000/audio"
+headers = {"content-type": "audio/wav"}
 
 
 ## This may look a bit intricate/useless, considering the fact that scipy's read() and write() function already return a
